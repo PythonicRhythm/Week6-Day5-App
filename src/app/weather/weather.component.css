@@ -8,6 +8,12 @@
     gap: 20px;
 }
 
+.location-header {
+    width: 50%;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
 .current-hour {
     backdrop-filter: blur(20px);
     background-color: rgba(0, 0, 0, 0.288);
