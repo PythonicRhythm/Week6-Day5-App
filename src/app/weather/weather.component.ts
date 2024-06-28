@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from '../../environment';
 
 @Component({
   selector: 'app-weather',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './weather.component.css'
 })
 export class WeatherComponent {
-  url = "https://api.tomorrow.io/v4/weather/forecast?&units=metric&apikey=1r3pRoUDMmhBtVFCrbVj8At5birHxd3D&location=";
+  url = `https://api.tomorrow.io/v4/weather/forecast?&units=metric&apikey=${environment.apiKey}&location=`;
   options = {
       method: "GET",
   };
