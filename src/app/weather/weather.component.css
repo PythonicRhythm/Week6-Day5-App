@@ -5,12 +5,15 @@
     justify-content: center;
     color: white;
     font-family: monospace;
-    gap: 20px;
+}
+
+.weather-img {
+    margin: 0px;
 }
 
 .location-header {
-    width: 50%;
-    margin-bottom: 0px;
+    width: 60%;
+    margin: 0px;
     text-align: center;
 }
 
@@ -21,10 +24,16 @@
     border-radius: 10px;
     border: 1px solid rgba(211, 209, 209, 0.496);
     transition: ease 0.25s;
+    margin-bottom: 10px;
 }
 
 .current-hour:hover {
     -webkit-transform: scale(1.05);
+}
+
+.current-hour > p {
+    margin: 0px;
+    padding: 2px;
 }
 
 .hourly-data {
@@ -37,15 +46,27 @@
     padding: 6px 20px;
     border-radius: 10px;
     border: 1px solid rgba(211, 209, 209, 0.496);
+    margin-bottom: 10px;
 }
 
 .single-hour-data {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     transition: ease 0.25s;
 }
 
 .single-hour-data:hover {
     -webkit-transform: scale(1.05);
+}
+
+.single-hour-data > p,h3,img {
+    margin: 0px;
+    padding: 2px;
+}
+
+.small-weather-img {
+    align-self: center;
 }
 
 .api-action {

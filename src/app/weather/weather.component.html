@@ -2,7 +2,7 @@
 <div class="weather-comp">
     <img *ngIf="weatherData != undefined && weatherData != null" class="weather-img" id="weather-img" src="{{getWeatherCode()}}" alt="{{getWeatherCode()}}"/>
     <div class="location-header">
-        <h1 *ngIf="weatherData!= undefined && weatherData != null">{{weatherData.location.name.split(",")[0]}}</h1>
+        <h1 *ngIf="weatherData!= undefined && weatherData != null">{{formatLocation()}}</h1>
     </div>
     <div *ngIf="weatherData != undefined && weatherData != null" class="current-hour">
         <h3>Time: T{{weatherData.timelines.hourly[0].time.split("T")[1]}}</h3>
@@ -15,10 +15,11 @@
         <p>Wind Speed: {{weatherData.timelines.hourly[0].values.windSpeed}} m/s</p>
     </div>
     <div *ngIf="weatherData != undefined && weatherData != null" class="hourly-data">
-        <div *ngFor="let hour of getImportantHours()" class="single-hour-data">
+        <div *ngFor="let hour of getImportantHours(); let i = index" class="single-hour-data">
+            <img src="{{getSmallWeatherCode(i)}}" alt="{{getSmallWeatherCode(i)}}" class="small-weather-img"/>
             <h3>Time: T{{hour.time.split("T")[1]}}</h3>
-            <p>Date: {{hour.time.split("T")[0]}}</p>
             <p>Temperature: {{hour.values.temperature}}℃</p>
+            <p>Humidity: {{hour.values.humidity}}%</p>
         </div>
     </div>
     <div class="api-action">

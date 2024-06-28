@@ -13,6 +13,7 @@ export class WeatherComponent {
   };
   location = '';
   weatherData:any;
+  hourlyData:any;
 
   constructor() {
   }
@@ -23,7 +24,7 @@ export class WeatherComponent {
     console.log(result);
     this.weatherData = result;
     console.log(this.weatherData);
-    this.getWeatherCode();
+    // this.getWeatherCode();
   }
 
   getWeatherCode() {
@@ -32,11 +33,27 @@ export class WeatherComponent {
     return url;
   }
 
+  getSmallWeatherCode(index:number) {
+    let url = "/tomorrow-weather-codes-master/V2_icons/small/png/";
+    url += this.hourlyData[index].values.weatherCode + "0.png";
+    return url;
+  }
+
   getImportantHours() {
-    let hourlyData = []; 
+    this.hourlyData = []; 
     for(var i = 1; i < 13; i++) {
-      hourlyData.push(this.weatherData.timelines.hourly[i]);
+      this.hourlyData.push(this.weatherData.timelines.hourly[i]);
     }
-    return hourlyData;
+    return this.hourlyData;
+  }
+
+  formatLocation() {
+    if(this.weatherData.location.name) {
+      let nameArr = this.weatherData.location.name.split(",");
+      return nameArr[0] + "," + nameArr[nameArr.length-1];
+    }
+    else {
+      return "Lat: "+this.weatherData.location.lat+" Long: "+this.weatherData.location.lon;
+    }
   }
 }
