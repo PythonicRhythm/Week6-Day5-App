@@ -2,7 +2,8 @@
 <div class="weather-comp">
     <img *ngIf="weatherData != undefined && weatherData != null" class="weather-img" id="weather-img" src="{{getWeatherCode()}}" alt="{{getWeatherCode()}}"/>
     <div class="location-header">
-        <h1 *ngIf="weatherData!= undefined && weatherData != null">{{formatLocation()}}</h1>
+        <h1 *ngIf="weatherData!= undefined && weatherData != null">{{getCityName()}}</h1>
+        <h1 *ngIf="weatherData!= undefined && weatherData != null">{{getCountryName()}}</h1>
     </div>
     <div *ngIf="weatherData != undefined && weatherData != null" class="current-hour">
         <h3>Time: T{{weatherData.timelines.hourly[0].time.split("T")[1]}}</h3>

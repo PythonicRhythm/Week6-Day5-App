@@ -47,13 +47,20 @@ export class WeatherComponent {
     return this.hourlyData;
   }
 
-  formatLocation() {
+  getCityName() {
+    if(this.weatherData.location.name) {
+      return this.weatherData.location.name.split(",")[0] + ",";
+    }
+    else
+      return "Latitude: "+this.weatherData.location.lat +"°, ";
+  }
+
+  getCountryName() {
     if(this.weatherData.location.name) {
       let nameArr = this.weatherData.location.name.split(",");
-      return nameArr[0] + "," + nameArr[nameArr.length-1];
+      return nameArr[nameArr.length-1];
     }
-    else {
-      return "Lat: "+this.weatherData.location.lat+" Long: "+this.weatherData.location.lon;
-    }
+    else
+      return "Longitude: "+this.weatherData.location.lon + "°";
   }
 }
