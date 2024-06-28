@@ -1,8 +1,9 @@
 
 <div class="weather-comp">
-    <img *ngIf="weatherData != undefined && weatherData != null" class="weather-img" id="weather-img" src="/tomorrow-weather-codes-master/V2_icons/large/png/{{currentWeatherCode}}" alt="/tomorrow-weather-codes-master/V2_icons/large/png/{{currentWeatherCode}}"/>
+    <img *ngIf="weatherData != undefined && weatherData != null" class="weather-img" id="weather-img" src="{{getWeatherCode()}}" alt="{{getWeatherCode()}}"/>
     <div *ngIf="weatherData != undefined && weatherData != null" class="current-hour">
-        <h3>Time: {{weatherData.timelines.hourly[0].time}}</h3>
+        <h3>Time: T{{weatherData.timelines.hourly[0].time.split("T")[1]}}</h3>
+        <p>Date: {{weatherData.timelines.hourly[0].time.split("T")[0]}}</p>
         <p>Temperature: {{weatherData.timelines.hourly[0].values.temperature}}℃</p>
         <p>Feels like: {{weatherData.timelines.hourly[0].values.temperatureApparent}}℃</p>
         <p>Humidity: {{weatherData.timelines.hourly[0].values.humidity}}%</p>
@@ -12,14 +13,15 @@
     </div>
     <div *ngIf="weatherData != undefined && weatherData != null" class="hourly-data">
         <div *ngFor="let hour of getImportantHours()" class="single-hour-data">
-            <p>Time: T{{hour.time.split("T")[1]}}</p>
+            <h3>Time: T{{hour.time.split("T")[1]}}</h3>
+            <p>Date: {{hour.time.split("T")[0]}}</p>
             <p>Temperature: {{hour.values.temperature}}℃</p>
         </div>
     </div>
     <div class="api-action">
         <form (submit)="testAPI()">
-            <input type="text" name="location" id="location" placeholder="Enter City Name..." required="required" [(ngModel)]="location"/>
-            <button type="submit">Test API</button>
+            <input class="location" type="text" name="location" id="location" placeholder="Enter City Name..." required="required" [(ngModel)]="location"/>
+            <button class="api-button" type="submit">Check Location</button>
         </form>
     </div>
 </div>

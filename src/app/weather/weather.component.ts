@@ -13,7 +13,6 @@ export class WeatherComponent {
   };
   location = '';
   weatherData:any;
-  currentWeatherCode:any;
 
   constructor() {
   }
@@ -21,14 +20,16 @@ export class WeatherComponent {
   async testAPI() {
     const response = await fetch(this.url+this.location, this.options);
     const result = await response.json();
-    console.log(result.timelines.daily);
+    console.log(result);
     this.weatherData = result;
     console.log(this.weatherData);
     this.getWeatherCode();
   }
 
   getWeatherCode() {
-    this.currentWeatherCode = this.weatherData.timelines.daily[0].weatherCodeMin;
+    let url = "/tomorrow-weather-codes-master/V2_icons/large/png/";
+    url += this.weatherData.timelines.daily[0].values.weatherCodeMin + "0.png";
+    return url;
   }
 
   getImportantHours() {

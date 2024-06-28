@@ -5,21 +5,71 @@
     justify-content: center;
     color: white;
     font-family: monospace;
-    gap: 10px;
+    gap: 20px;
 }
 
 .current-hour {
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.288);
     padding: 6px 20px;
     border-radius: 10px;
     border: 1px solid rgba(211, 209, 209, 0.496);
+    transition: ease 0.25s;
+}
+
+.current-hour:hover {
+    -webkit-transform: scale(1.05);
 }
 
 .hourly-data {
-    display: flex;
-    flex-direction: row;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.288);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
     padding: 6px 20px;
     border-radius: 10px;
     border: 1px solid rgba(211, 209, 209, 0.496);
+}
+
+.single-hour-data {
+    padding: 10px;
+    transition: ease 0.25s;
+}
+
+.single-hour-data:hover {
+    -webkit-transform: scale(1.05);
+}
+
+.api-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.location {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    transition: ease 0.25s;
+}
+
+.location:hover {
+    -webkit-transform: scale(1.05);
+}
+
+.api-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(211, 209, 209, 0.496);
+    transition: ease 0.25s;
+}
+
+.api-button:hover {
+    -webkit-transform: scale(1.05);
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
 }
