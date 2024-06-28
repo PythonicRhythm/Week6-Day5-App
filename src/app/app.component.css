@@ -32,3 +32,10 @@ body {
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.761);
     color: white;
 }
+
+.tomorrow-logo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+}
