@@ -25,7 +25,6 @@ export class WeatherComponent {
     console.log(result);
     this.weatherData = result;
     console.log(this.weatherData);
-    // this.getWeatherCode();
   }
 
   getWeatherCode() {
